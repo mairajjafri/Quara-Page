@@ -58,6 +58,20 @@ app.get("/posts/:id", (req, res) => {
     res.render("show.ejs", { post });
 });
 
+app.patch("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let { content } = req.body;
+
+    let post = posts.find((p) => p.id === id);
+    if (!post) {
+        return res.status(404).send("Post not found");
+    }
+
+    post.content = content;
+    console.log(post);
+    res.send("working!");
+});
+
 
 app.listen(port, () => {
     console.log(`listening to port: ${port}`);
