@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Post</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <form method="post" action="/posts">
-        <input type="text" placeholder="enter username" name="username"><br><br>
-        <textarea name="content" placeholder="write your post"></textarea>
-        <button>Submit Post</button>
-    </form>
+    <%- include('partials/header') %>
+
+        <div class="container create-card">
+            <h2 class="text-center mb-20">Create a New Post</h2>
+            <form method="post" action="/posts">
+                <input type="text" name="username" placeholder="Enter your username" required>
+                <textarea name="content" rows="6" placeholder="Write your post" required></textarea>
+                <button class="btn btn-primary">Submit Post</button>
+            </form>
+        </div>
 </body>
 
 </html>

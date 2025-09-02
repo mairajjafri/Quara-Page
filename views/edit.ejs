@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <h2>Edit your post</h2>
-    <p>Post id:
-        <%=post.id  %>
-    </p>
-    <p>Post username: @
-        <%=post.username  %>
-    </p>
-    <form action="/posts/<%=post.id%>?_method=PATCH" method="post">
-        <textarea name="content" rows="10" cols="35"> <%=post.content  %></textarea>
-        <button>Submit</button>
-    </form>
+    <%- include('partials/header') %>
+
+        <div class="container create-card">
+            <h2 class="text-center mb-20">Edit Your Post</h2>
+            <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+                <input type="text" value="<%= post.username %>" disabled>
+                <textarea name="content" rows="6"><%= post.content %></textarea>
+                <button class="btn btn-primary">Update Post</button>
+            </form>
+        </div>
 </body>
 
 </html>
